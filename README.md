@@ -1,4 +1,4 @@
-<img src="assets/logo.png" width="88" height="88" alt="Blyx calibration logo">
+<img src="assets/logo.png" width="88" height="88" alt="Blyx penguin adjusting a probability point against a diagonal reference line.">
 
 # Blyx Calibration
 
