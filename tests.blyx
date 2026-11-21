@@ -1,0 +1,19 @@
+use calibration;
+use std::cli;
+
+fn check(ok: bool) {
+    if !ok { stderr_line("calibration check failed"); process_exit(1); }
+}
+fn main() {
+    check(cal_brier([0, 1], [0, 1]) == 0.0);
+    check(cal_brier([0, 0, 1, 1], [0.25, 0.25, 0.75, 0.75]) == 0.0625);
+    check(cal_ece([0, 0, 1, 1], [0.25, 0.25, 0.75, 0.75], 2) == 0.25);
+    check(cal_ece([0, 1], [0, 1], 10) == 0.0);
+    let b = cal_bin([0, 1, 1], [0, 0.5, 1], 1, 2);
+    check(at(b, 0) == 2.0 && at(b, 1) == 1.5 && at(b, 2) == 2.0);
+    check(at(cal_bin([0, 1], [0, 1], 1, 3), 0) == 0.0);
+    check(cal_ece([], [], 2) == -1.0 && cal_brier([1], []) == -1.0);
+    check(cal_brier([1.2], [0.5]) == -1.0 && cal_brier([1], [-0.5]) == -1.0);
+    check(len(cal_bin([1], [1], 2, 2)) == 0 && cal_ece([1], [1], 0) == -1.0);
+    println!("calibration checks passed");
+}
