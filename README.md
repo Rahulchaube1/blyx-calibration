@@ -1,3 +1,5 @@
+<img src="assets/logo.png" width="88" height="88" alt="Blyx calibration logo">
+
 # Blyx Calibration
 
 Two models can make the same decisions and assign very different probabilities. Compare their binary probability forecasts with the Brier score, and inspect reliability bins to see where confidence and outcomes disagree.
@@ -16,7 +18,7 @@ The example prints a Brier score of `0.0625` and a two-bin expected calibration 
 ## Use in another Blyx project
 
 ```sh
-git clone --depth 1 --branch v0.1.0 https://github.com/Rahulchaube1/blyx-calibration.git vendor/calibration
+git clone --depth 1 --branch v0.1.1 https://github.com/Rahulchaube1/blyx-calibration.git vendor/calibration
 ```
 
 ```blyx
@@ -45,3 +47,7 @@ Labels must be 0 or 1. Scores must be finite and in [0,1]. Vectors must be nonem
 Brier and individual bin summaries take linear time. ECE makes one pass per bin and uses constant auxiliary space. Compare ECE at the same bin count and inspect counts before interpreting small-sample results.
 
 [Blyx package catalog](https://www.blyx-lang.space/packages) · [Blyx compiler](https://github.com/Rahulchaube1/blyxxxx/releases/tag/v0.2.1)
+
+## Contribute
+
+Run the documented tests, then open a pull request with a small input that reproduces the behavior you want to change. Include the expected result and your Blyx compiler version. [Package issues](https://github.com/Rahulchaube1/blyx-calibration/issues) · [Ecosystem catalog](https://www.blyx-lang.space/packages)
